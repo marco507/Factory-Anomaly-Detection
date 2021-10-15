@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissable" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h4>Logged Parts</h4>
+    </br>
+    {% if all_parts %}
+    <table class="table table-bordered">
+        <tr>
+            <td><b>Description</b></td>
+            <td><b>Machine</b></td>
+            <td><b>Start</b></td>
+            <td><b>End</b></td>
+            <td><b>AnomalyScore</b></td>
+            <td><b>Sensor Data</b></td>
+        </tr>
+        {% for part in all_parts %}
+        {% if part.finished %}
+        <tr>
+            <td>{{ part.description }}</td>
+            <td>{{ part.machine }}</td>
+            <td>{{ part.start_datetime }}</td>
+            <td>{{ part.end_datetime }}</td>
+            <td>{{ part.anomaly_score }}</td>
+            <td><a href="{% url 'download' part.id %}">Download</a></td>
+            <td><a href="{% url 'deletepart' part.id %}">Delete</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

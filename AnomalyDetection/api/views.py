@@ -67,7 +67,7 @@ class Prediction(APIView):
 
         # Unauthorized request
         else:
-            return Response({'Unauthorized': 401})
+            return Response({'Status': 401})
 
 
 

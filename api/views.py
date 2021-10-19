@@ -13,12 +13,12 @@ class Prediction(APIView):
 
     # Handle a POST request
     def post(self,request):
-        # Check if the request is from a registered machine
-        if Machine.objects.filter(token=request.headers['Authorization'], description=request.data['machine']): 
+        # Save the data from the request
+        data = request.data
 
-            # Save the data from the request
-            data = request.data
-            
+        # Check if the request is from a registered machine
+        if Machine.objects.filter(token=request.headers['Authorization'], description=data['machine']): 
+
             # New part should be created
             if data['action'] == 'new':
                 new_part = Part(description=data['description'],

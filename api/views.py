@@ -14,7 +14,7 @@ class Prediction(APIView):
     # Handle a POST request
     def post(self,request):
         # Check if the request is from a registered machine
-        if Machine.objects.filter(token=request.headers['Authorization']): 
+        if Machine.objects.filter(token=request.headers['Authorization'], description=request.data['machine']): 
 
             # Save the data from the request
             data = request.data

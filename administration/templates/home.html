@@ -12,7 +12,28 @@
 {% endfor %}
 {% endif %}
 
-
-<h1>Homepage</h1>
+<div class="container">
+<h1>Anomaly Detection Administration Interface</h1>
+<br>
+<div class="row">
+    <div class="col">
+        <h3>Registering Machines</h3>
+        <br>
+        <p>To register a new machine click the 'Machines' button or use the navigation bar.<br><br>
+            Then enter the machines description and click the 'Create Machine button' on the machines page.<br><br>
+            The newly created machine and the generated authentication token are then listed on the page.<br><br>
+            <a class="btn btn-primary" href="{% url 'machines' %}" role="button">Machines</a>
+        </p>
+    </div>
+    <div class="col">
+        <h3>Inspecting Parts</h3>
+        <br>
+        <p>To inspect parts click the 'Parts' button or use the navigation bar.<br><br>
+            Finished parts and their respective key attributes are listed on the parts page.<br><br>
+            To save the generated sensor data of a part click the download link and to delete the part use the deletion link.<br><br>
+            <a class="btn btn-primary" href="{% url 'parts' %}" role="button">Parts</a>
+        </p>
+    </div>
+</div>
 
 {% endblock %}

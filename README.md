@@ -1,1 +1,0 @@
-# Factory-Anomaly-Detection

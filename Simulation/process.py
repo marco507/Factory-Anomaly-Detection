@@ -13,7 +13,7 @@ class machine():
         def __init__(self, description, token):
             self.machine_desc = description
             self.token = token
-            self.url = 'https://factory-anomaly-detection.herokuapp.com/api/predict/'
+            self.url = 'http://127.0.0.1:8000/api/predict/'
             self.headers = {'Authorization': self.token}
             self.isof = pickle.load(open('isof.model', 'rb'))
 
@@ -105,7 +105,7 @@ class machine():
 
 if __name__ == "__main__":
     # Create a new machine
-    milling_01 = machine('milling_01', 'd9a0a598827225261a7e4360927fd1d565ce9f5e')
+    milling_01 = machine('milling_01', '6e8c238101f53b28b7a41ac3fffc59ed4c388a79')
 
     # Create a new part
     milling_01.process('part_001')
